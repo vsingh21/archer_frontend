@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 interface ImageModalProps {
   isOpen: boolean;
@@ -8,11 +8,9 @@ interface ImageModalProps {
   date: string;
   names?: string[];
   index?: number;
-  relid?: string;
-  landingUrl?: string;
 }
 
-const ImageModal: React.FC<ImageModalProps> = ({ isOpen, onClose, url, caption, date, names, index, relid, landingUrl }) => {
+const ImageModal: React.FC<ImageModalProps> = ({ isOpen, onClose, url, caption, date, names, index }) => {
 
   if (!isOpen) return null;
 

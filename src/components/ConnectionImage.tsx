@@ -48,7 +48,6 @@ interface ConnectionImageProps {
   caption: string;
   date: string;
   relid?: string;
-  landingUrl?: string;
 }
 
 const ConnectionImage = React.memo(({
@@ -58,7 +57,6 @@ const ConnectionImage = React.memo(({
   date,
   index,
   relid,
-  landingUrl,
 }: ConnectionImageProps) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [ratingStatus, setRatingStatus] = useState<'liked' | 'disliked' | null>(null);
@@ -174,8 +172,6 @@ const ConnectionImage = React.memo(({
         date={date}
         names={names}
         index={index}
-        relid={relid}
-        landingUrl={landingUrl}
       />
     </>
   );

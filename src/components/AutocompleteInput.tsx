@@ -16,7 +16,7 @@ interface AutocompleteInputProps {
 }
 
 const AutocompleteInput = React.forwardRef<HTMLInputElement, AutocompleteInputProps>(
-  ({ id, placeholder, initialValue = '', onValueChange, onValueConfirm, onFocusNext, onSubmitSearch, inputRef: forwardedRef }, ref) => {
+  ({ id, placeholder, initialValue = '', onValueChange, onValueConfirm, onFocusNext, onSubmitSearch, inputRef: forwardedRef }) => {
     const [inputValue, setInputValue] = useState<string>(initialValue);
     const [suggestions, setSuggestions] = useState<PersonSuggestion[]>([]);
     const [showSuggestions, setShowSuggestions] = useState<boolean>(false);

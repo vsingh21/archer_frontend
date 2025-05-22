@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import './PageStyles.css';
 import './AdminPage.css';
@@ -41,7 +41,6 @@ const AdminPage: React.FC<AdminPageProps> = ({ dashboard = false }) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const { user, token, loading, login, logout } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation();
 
   useEffect(() => {
     // Log auth state for debugging

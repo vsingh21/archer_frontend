@@ -7,7 +7,7 @@ interface ConnectionResultsProps {
   data: ConnectionData | null;
   submitted1: string;
   submitted2: string;
-  scrollRef: React.RefObject<HTMLDivElement>;
+  scrollRef: React.RefObject<HTMLDivElement | null>;
 }
 
 const ConnectionResults: React.FC<ConnectionResultsProps> = ({
@@ -54,7 +54,6 @@ const ConnectionResults: React.FC<ConnectionResultsProps> = ({
                   caption={rel.caption}
                   date={rel.dateCreated}
                   relid={rel.relid}
-                  landingUrl={rel.landingUrl}
                 />
               ))}
             </div>
