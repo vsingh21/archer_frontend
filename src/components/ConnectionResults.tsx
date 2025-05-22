@@ -1,6 +1,7 @@
 import React from 'react';
 import { ConnectionData } from '../types';
 import ConnectionImage from './ConnectionImage';
+import ReportButton from './ReportButton';
 
 interface ConnectionResultsProps {
   isLoading: boolean;
@@ -58,6 +59,8 @@ const ConnectionResults: React.FC<ConnectionResultsProps> = ({
               ))}
             </div>
           </div>
+          
+          <ReportButton connectionData={data} />
         </>
       );
     }
