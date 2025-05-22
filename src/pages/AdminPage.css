@@ -1,0 +1,708 @@
+.admin-page {
+  max-width: 100%;
+  width: 100%;
+  margin: 2rem auto 0;
+  padding: 0 1rem 2rem;
+  overflow-x: hidden; /* Prevent horizontal scrolling on the page level */
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.logout-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logout-button:hover {
+  background-color: #d32f2f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 400px;
+  margin: 2rem auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 500;
+}
+
+.form-group input {
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: inherit;
+  transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+}
+
+.form-group input:focus {
+  outline: none;
+}
+
+.submit-button, .logout-button, .approve-button, .reject-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  border: none;
+}
+
+.submit-button {
+  padding: 1rem 2rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.page-content h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--heading-color, #333);
+}
+
+.contributions-table-container {
+  overflow-x: auto;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  min-width: 0; /* Allow container to shrink below its content's minimum width */
+}
+
+.contributions-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  min-width: auto; /* Allow table to shrink below minimum width */
+}
+
+.contributions-table th,
+.contributions-table td {
+  padding: 0.8rem 0.5rem;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  vertical-align: top;
+}
+
+/* Adjust column widths to fit everything without scrolling */
+.contributions-table th:nth-child(1),
+.contributions-table td:nth-child(1) {
+  width: 90px; /* Preview column */
+}
+
+.contributions-table th:nth-child(2),
+.contributions-table td:nth-child(2) {
+  width: 12%;
+}
+
+.contributions-table th:nth-child(3),
+.contributions-table td:nth-child(3) {
+  width: 7%;
+}
+
+.contributions-table th:nth-child(4),
+.contributions-table td:nth-child(4) {
+  width: 16%;
+}
+
+.contributions-table th:nth-child(5),
+.contributions-table td:nth-child(5) {
+  width: 12%;
+}
+
+.contributions-table th:nth-child(6),
+.contributions-table td:nth-child(6) {
+  width: 12%;
+}
+
+.contributions-table th:nth-child(7),
+.contributions-table td:nth-child(7) {
+  width: 7%;
+}
+
+.contributions-table th:nth-child(8),
+.contributions-table td:nth-child(8) {
+  width: 8%; /* Can be smaller with icon buttons */
+}
+
+.image-cell {
+  width: 90px;
+  height: 120px;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.thumbnail {
+  width: auto;
+  max-width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.thumbnail:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contributor-name {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.contributor-email {
+  font-size: 0.8rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* Dark mode styling for contributor email */
+body.dark-mode .contributor-email {
+  color: #aaa;
+}
+
+.description-cell,
+.people-cell {
+  max-width: 100%;
+  overflow: hidden;
+  padding: 0.75rem 0.5rem;
+  word-break: break-word;
+}
+
+.scrollable-content {
+  max-height: 120px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 5px; /* Add padding for scrollbar */
+}
+
+/* Create a more compact but readable list in the people cell */
+.scrollable-content ul {
+  margin: 0;
+  padding-left: 1rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.scrollable-content ul li {
+  margin-bottom: 5px;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.description-cell::-webkit-scrollbar {
+  width: 6px;
+}
+
+.description-cell::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.description-cell::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+/* For Firefox */
+.description-cell {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.05);
+}
+
+.people-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 0.9rem;
+}
+
+.people-list li {
+  margin-bottom: 4px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  min-width: 80px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.status-badge.pending {
+  background-color: #fff8e1;
+  color: #f57c00;
+}
+
+.status-badge.approved {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status-badge.rejected {
+  background-color: #ffebee;
+  color: #d32f2f;
+}
+
+/* Make action buttons more compact */
+.action-buttons {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically to save width */
+  gap: 0.5rem; /* Increased from 0.3rem for better spacing in taller rows */
+  justify-content: center;
+  height: 100%;
+}
+
+.approve-button, .reject-button {
+  padding: 0.4rem;
+  font-size: 1rem;
+  font-weight: bold;
+  min-width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: #646cff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+.loading-indicator p {
+  margin-top: 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.empty-state h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.empty-state p {
+  font-size: 1rem;
+  max-width: 500px;
+  line-height: 1.5;
+}
+
+.error-message {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* Dark Mode Styles */
+body.dark-mode .form-group input {
+  border: 1px solid #444;
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+body.dark-mode .form-group input:focus {
+  border-color: #646cff;
+}
+
+body.dark-mode .submit-button, 
+body.dark-mode .logout-button {
+  background-color: #646cff;
+  color: white;
+  border: 1px solid transparent;
+}
+
+body.dark-mode .submit-button:hover:not(:disabled), 
+body.dark-mode .logout-button:hover:not(:disabled) {
+  background-color: #535bf2;
+}
+
+body.dark-mode .approve-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+body.dark-mode .approve-button:hover:not(:disabled) {
+  background-color: #388e3c;
+}
+
+body.dark-mode .reject-button {
+  background-color: #f44336;
+  color: white;
+}
+
+body.dark-mode .reject-button:hover:not(:disabled) {
+  background-color: #d32f2f;
+}
+
+body.dark-mode .empty-state,
+body.dark-mode .contributions-table-container {
+  background-color: #222;
+  border: 1px solid #333;
+}
+
+body.dark-mode .contributions-table th {
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+body.dark-mode .contributions-table td {
+  border-bottom: 1px solid #333;
+}
+
+body.dark-mode .status-badge.pending {
+  background-color: #5f4339;
+  color: #ffb74d;
+}
+
+body.dark-mode .status-badge.approved {
+  background-color: #2e452e;
+  color: #81c784;
+}
+
+body.dark-mode .status-badge.rejected {
+  background-color: #452e2e;
+  color: #e57373;
+}
+
+body.dark-mode .spinner {
+  border-color: rgba(255, 255, 255, 0.1);
+  border-top-color: #646cff;
+}
+
+body.dark-mode .error-message {
+  background-color: #452e2e;
+  color: #e57373;
+  border-left: 4px solid #e57373;
+}
+
+/* Light Mode Styles */
+body.light-mode .form-group input {
+  border: 1px solid #ddd;
+  background-color: white;
+  color: #333;
+}
+
+body.light-mode .form-group input:focus {
+  border-color: #646cff;
+}
+
+body.light-mode .submit-button, 
+body.light-mode .logout-button {
+  background-color: #646cff;
+  color: white;
+  border: 1px solid transparent;
+}
+
+body.light-mode .submit-button:hover:not(:disabled), 
+body.light-mode .logout-button:hover:not(:disabled) {
+  background-color: #535bf2;
+}
+
+body.light-mode .approve-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+body.light-mode .approve-button:hover:not(:disabled) {
+  background-color: #388e3c;
+}
+
+body.light-mode .reject-button {
+  background-color: #f44336;
+  color: white;
+}
+
+body.light-mode .reject-button:hover:not(:disabled) {
+  background-color: #d32f2f;
+}
+
+body.light-mode .empty-state,
+body.light-mode .contributions-table-container {
+  background-color: white;
+  border: 1px solid #eee;
+}
+
+body.light-mode .contributions-table th {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+body.light-mode .contributions-table td {
+  border-bottom: 1px solid #eee;
+}
+
+body.light-mode .status-badge.pending {
+  background-color: #fff8e1;
+  color: #f57c00;
+}
+
+body.light-mode .status-badge.approved {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+body.light-mode .status-badge.rejected {
+  background-color: #ffebee;
+  color: #d32f2f;
+}
+
+body.light-mode .error-message {
+  background-color: #ffebee;
+  color: #d32f2f;
+  border-left: 4px solid #d32f2f;
+}
+
+/* Modal for full-size image */
+.image-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.image-modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.image-modal-close:hover {
+  background-color: white;
+}
+
+.full-size-image {
+  display: block;
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+/* Filter controls */
+.filter-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-button {
+  padding: 8px 16px;
+  border: 2px solid #ccc;
+  background-color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.filter-button.active {
+  background-color: #646cff;
+  color: white;
+  border-color: #646cff;
+}
+
+.filter-button:hover:not(.active) {
+  border-color: #646cff;
+  color: #646cff;
+}
+
+/* Dark mode for filter and modal */
+body.dark-mode .image-modal-content {
+  background-color: #1a1a1a;
+}
+
+body.dark-mode .image-modal-close {
+  background-color: rgba(40, 40, 40, 0.8);
+  color: #e0e0e0;
+}
+
+body.dark-mode .image-modal-close:hover {
+  background-color: #333;
+}
+
+body.dark-mode .filter-button {
+  background-color: #333;
+  color: #e0e0e0;
+  border-color: #555;
+}
+
+body.dark-mode .filter-button:hover:not(.active) {
+  border-color: #646cff;
+  color: #646cff;
+}
+
+body.dark-mode .filter-button.active {
+  background-color: #646cff;
+  color: white;
+  border-color: #646cff;
+}
+
+/* Ownership cell styling */
+.ownership-cell {
+  max-width: 180px;
+  font-size: 0.9rem;
+}
+
+.ownership-label {
+  font-weight: 500;
+  color: #555;
+  margin-right: 4px;
+}
+
+.source-link {
+  color: #646cff;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.source-link:hover {
+  text-decoration: underline;
+}
+
+.contributions-table thead th {
+  padding: 0.5rem 0.75rem !important; /* Reduced padding for smaller header height */
+  font-size: 0.9rem;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  background-color: #f5f5f5;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Dark mode styles for table headers */
+body.dark-mode .contributions-table thead th {
+  background-color: #333;
+  color: #e0e0e0;
+  border-bottom-color: #444;
+}
+
+/* Ensure all cells can wrap text */
+.contributions-table td,
+.contributions-table th {
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Make sure the page content doesn't get too narrow */
+@media (min-width: 1200px) {
+  .admin-page {
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* On smaller screens, prioritize important columns */
+  .contributions-table th:nth-child(3),
+  .contributions-table td:nth-child(3),
+  .contributions-table th:nth-child(7),
+  .contributions-table td:nth-child(7) {
+    display: none; /* Hide less important columns on mobile */
+  }
+}
+
+.actions-cell {
+  min-width: 60px; /* Can be smaller now with icon buttons */
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+  white-space: normal;
+  text-align: center;
+} 
